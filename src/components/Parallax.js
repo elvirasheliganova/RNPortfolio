@@ -11,11 +11,16 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import images from '../../assets/data/images'
+import { useNavigation } from '@react-navigation/native'
+import Project from '../screens/Project';
 
 
 const { width, height } = Dimensions.get('window');
 const ITEM_WIDTH = width * 0.36;
 const ITEM_HEIGHT = ITEM_WIDTH * 0.50;
+
+
 
 //const images = [
   //'https://images.unsplash.com/photo-1639413665566-2f75adf7b7ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDg4fGFldTZyTC1qNmV3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
@@ -32,25 +37,28 @@ const ITEM_HEIGHT = ITEM_WIDTH * 0.50;
   //'https://images.unsplash.com/photo-1511208687438-2c5a5abb810c?w=800&q=80',
   //'https://images.unsplash.com/photo-1548614606-52b4451f994b?w=800&q=80',
   //'https://images.unsplash.com/photo-1548600916-dc8492f8e845?w=800&q=80',];
-  const images = [
-    {photo: 'https://images.unsplash.com/photo-1639413665566-2f75adf7b7ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDg4fGFldTZyTC1qNmV3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-    text: 'Project 1',
-  },
-    {photo: 'https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGRlc2t0b3B8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-    text:' Project 2',
-  }, 
-  {photo: 'https://images.unsplash.com/photo-1639413665566-2f75adf7b7ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDg4fGFldTZyTC1qNmV3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-  text: 'Project 3',
-  },
-  ]
+ 
 
 const data = images.map((image, index) => ({
   key: String(index),
+  id: image.id,
   photo: image.photo,
-  text: image.text
-}))
-export default function Parallax({navigation}) {
+  text: image.text,
+  video: image.video,
 
+}))
+export default function Parallax() {
+
+  const navigation  = useNavigation()
+
+  const onPress = (item) => navigation.navigate('Project', { id: item.id })
+  
+      
+      //console.log(item.text)
+   
+    
+
+    
   const scrollY = useRef(new Animated.Value(0)).current
 
   return (
@@ -81,7 +89,10 @@ export default function Parallax({navigation}) {
           return (
             
             
-              <View style={{
+              <TouchableOpacity
+              onPress= {() => onPress(item)}
+              
+              style={{
                
                 //borderRadius: 22,
                 
@@ -99,11 +110,10 @@ export default function Parallax({navigation}) {
                 
                 elevation: 5,
                 //padding: 6,
-                justifyContent: 'center', alignItems: 'center'
+                justifyContent: 'center', alignContent: 'center'
               }}>
                 <View  style={{
-                      width: ITEM_WIDTH,
-                      height: ITEM_HEIGHT,
+                     
                       overflow: 'hidden', 
                       
                       justifyContent: 'center',
@@ -112,17 +122,21 @@ export default function Parallax({navigation}) {
 
                 
                     }}>
-                  <Animated.View style={{  transform: [{
+                  <Animated.View style={{  width: ITEM_WIDTH,
+                      height: ITEM_HEIGHT  , transform: [{
                             translateY,
                           },
-                        ]}}>
+                        ],
+                        
+                        }}>
                     <ImageBackground
                         source={{uri: item.photo}}
                         style={{
                           width: ITEM_WIDTH ,
                           height: ITEM_HEIGHT * 1.5 ,
-                          justifyContent: 'center',
-                          alignContent: 'center',
+                          //justifyContent: 'center',
+                          //alignContent: 'center',
+                          paddingVertical: ITEM_HEIGHT / 2.5,
                           resizeMode: 'cover',
                         
                           
@@ -130,14 +144,14 @@ export default function Parallax({navigation}) {
                         imageStyle={{opacity: 0.3}}
                       >
                           
-                            <Text style={{opacity: 1, textAlign: 'center', color: '#847577', fontSize: 80, fontFamily: 'AbrilFatface_400Regular', }}>
+                            <Text style={{opacity: 1, marginBottom: ITEM_HEIGHT/20, textAlign: 'center', color: '#847577', fontSize: 80, fontFamily: 'AbrilFatface_400Regular', }}>
                                 {item.text}
                             </Text>
                         
                         </ImageBackground>
                   </Animated.View>
                 </View>
-              </View>
+              </TouchableOpacity>
            
           )}}
         />

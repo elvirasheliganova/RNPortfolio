@@ -1,6 +1,6 @@
 import React, { useRef }  from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList, Image, Animated, ScrollView,ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image, Animated, SafeAreaView, ImageBackground } from 'react-native';
 import { Dimensions } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { useFonts,  AbrilFatface_400Regular  } from '@expo-google-fonts/abril-fatface';
@@ -8,26 +8,19 @@ import Parallax from '../components/Parallax';
 import { TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import images from '../../assets/data/images'
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height
 const { width, height } = Dimensions.get('window');
-const images = [
-  {photo: 'https://images.unsplash.com/photo-1639413665566-2f75adf7b7ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDg4fGFldTZyTC1qNmV3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-  text: 'Project 1',
-},
-  {photo: 'https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGRlc2t0b3B8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-  text:' Project 2',
-}, 
-{photo: 'https://images.unsplash.com/photo-1639413665566-2f75adf7b7ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDg4fGFldTZyTC1qNmV3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-text: 'Project 3',
-},
-]
+
 
 const data = images.map((image, index) => ({
   key: String(index),
   photo: image.photo,
-  text: image.text
+  text: image.text,
+  desc: image.desc,
+  video: image.video
 }))
 
 const HomeScreen = ({navigation}) => {
@@ -46,7 +39,7 @@ const HomeScreen = ({navigation}) => {
   } else {
   
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.innerContainer}>
        <View style={styles.circleContainer}>
         <View style={styles.circle}>
@@ -66,7 +59,7 @@ const HomeScreen = ({navigation}) => {
         
         <TouchableOpacity 
                 //style={styles.imageContainer}
-                onPress={({item}) => navigation.navigate('Project')}>
+               >
           <View style={{marginBottom: height / 15}}>
             <Parallax />
           </View>
@@ -167,15 +160,17 @@ const HomeScreen = ({navigation}) => {
       </View>
       
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 }
 const styles = StyleSheet.create({
   container: {
     //flex: 1,
+    
   width: windowWidth * 0.6,
   height: windowHeight,
+
     
     
     minWidth: 1120,
@@ -201,14 +196,14 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     justifyContent: 'flex-end',
     position: 'absolute',
-    top: -windowHeight / 12
+    top: -windowHeight / 10
   },
 
   circle: {
     height: windowHeight / 4,
     width: windowHeight / 4,
     backgroundColor: '#FD4E02',
-    borderRadius: 100,
+    borderRadius: '50%',
     alignItems: 'center',
     justifyContent: 'center',
 
@@ -230,7 +225,7 @@ const styles = StyleSheet.create({
     width: windowWidth * 0.28,
     justifyContent: 'flex-start',
     textAlign: 'center',
-    paddingTop: windowHeight / 10,
+    paddingTop: windowHeight / 12,
     paddingBottom: windowWidth / 50
   },
   title: {
