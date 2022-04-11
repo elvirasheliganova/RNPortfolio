@@ -1,6 +1,9 @@
 import React, { useRef }  from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList, Image, Animated, SafeAreaView, ImageBackground } from 'react-native';
+import '@expo/match-media';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useMediaQuery } from "react-responsive";
+import { StyleSheet, Text, View, FlatList, Image, Animated,  ImageBackground } from 'react-native';
 import { Dimensions } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { useFonts,  AbrilFatface_400Regular  } from '@expo-google-fonts/abril-fatface';
