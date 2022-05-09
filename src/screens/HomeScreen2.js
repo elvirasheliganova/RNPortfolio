@@ -4,17 +4,20 @@ import { StatusBar } from 'expo-status-bar';
 import '@expo/match-media';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useMediaQuery } from "react-responsive";
-import { StyleSheet, Text, View, FlatList, Image, Animated,  ImageBackground } from 'react-native';
-import { Dimensions } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image, Animated,  ImageBackground,  Dimensions } from 'react-native';
+
+import {Linking} from 'react-native'
 import AppLoading from 'expo-app-loading';
 import { useFonts,  AbrilFatface_400Regular  } from '@expo-google-fonts/abril-fatface';
-import Parallax2 from '../components/Parallax2';
+import Parallax3 from '../components/Parallax3';
 import { TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import images from '../../assets/data/images'
 
 const { width, height } = Dimensions.get('window');
+const ITEM_WIDTH = width * 0.5;
+const ITEM_HEIGHT = height;
 
 
 const data = images.map((image, index) => ({
@@ -28,8 +31,8 @@ const data = images.map((image, index) => ({
 const HomeScreen2 = ({navigation}) => {
 
   const laptop = useMediaQuery({
-    maxDeviceWidth: 1224,
-    query: "(max-device-width: 1224px)"
+    maxDeviceWidth: 1440,
+    query: "(max-device-width: 1440px)"
   })
   const tablet = useMediaQuery({
     maxDeviceWidth: 992,
@@ -62,42 +65,55 @@ const HomeScreen2 = ({navigation}) => {
       
         
       <View style={[styles.innerContainer,  
-          { width: mobile ? width : tablet ?  width * 0.85 : width * 0.75 }]}>
+          { width: mobile ? width : tablet ?  width * 0.85 : width * 0.75,
+          //backgroundColor: 'lightblue'
+          }]}>
         
        
         
        
         <View style={[styles.container, { width: mobile ? width : tablet ? width * 0.85 :  width * 0.7 , 
            paddingTop: mobile ? height / 6 : tablet ? height / 5 : height / 5 ,
-           paddingBottom: mobile ? height / 8 :  height / 10}
+           paddingBottom: mobile ? height / 8 :  height / 10, maxWidth: 960}
          ]}>
           <View style={styles.circleContainer}>
               <View style={styles.circle}>
                 <Text style={[styles.circleText, {fontSize: mobile ? 14 : tablet ? 20 : 20}]}>TheElza</Text>
               </View>
-            </View>
-          <View style={[styles.titleContainer, { marginBottom: mobile ? 0 : tablet ? height/15 : height/20, marginHorizontal: mobile ? height/20 : 0 }]}>
+          </View>
+          <View style={[styles.titleContainer, {
+            //backgroundColor: 'lightyellow', 
+            marginBottom: mobile ? 0 : tablet ? height/15 : height/40, marginHorizontal: mobile ? height/20 : 0 }]}>
             <Text 
             //numberOfLines={2}
             //adjustsFontSizeToFit
-            style={[styles.title, { fontSize: mobile ?  16 : tablet ? 22 : 24 }]}>A front-end developer working in react-native. </Text>
-            <Text style={[styles.title, { fontSize: mobile  ? 16 : tablet ? 22 : 24 }, {paddingBottom: 0}]}>Creating websites and applications for   </Text>
-            <Text style={[styles.title, { fontSize: mobile ? 16 : tablet ? 22 : 24 }]}>  new & growing companies.</Text>
+            style={[styles.title, { fontSize: mobile ?  16 : tablet ? 22 : 20 }]}>A front-end developer working in react-native. </Text>
+            <Text style={[styles.title, { fontSize: mobile  ? 16 : tablet ? 22 : 20 }, {paddingBottom: 0}]}>Creating websites and applications for   </Text>
+            <Text style={[styles.title, { fontSize: mobile ? 16 : tablet ? 22 : 20 }]}>  new & growing companies.</Text>
           </View>
           <TouchableOpacity 
                 style={{
-                  marginBottom: mobile ? 0 : tablet ? height / 20 : height/ 15,  
-                  //backgroundColor: 'yellow',
-                  height:  mobile ? height / 4 : tablet ? height / 3.5 : height/ 2.5,
-                  width: mobile ? width / 1.2 : tablet ?  width / 1.75 : width/ 2.6,
+                  marginBottom: mobile ? 20 : tablet ? height / 20 : height/ 15,  
+                 //backgroundColor: 'yellow',
+                 
+                  width : mobile ? ITEM_WIDTH * 1.5 : tablet ? ITEM_WIDTH * 1.5 :  ITEM_WIDTH ,  
+        maxWidth: 760,
+       height: mobile ? ITEM_HEIGHT * 2.5 : tablet ? ITEM_HEIGHT  : laptop ? ITEM_HEIGHT/ 2.2 : ITEM_HEIGHT, 
+        maxHeight: 450,
+                  //height:  mobile ? height / 4 : tablet ? height / 3.5 : height/ 2.5,
+                  //width: mobile ? width / 1.2 : tablet ?  width / 1.75 : width/ 2.6,
                   justifyContent: 'center',
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  //borderWidth: 2,
+                  //borderColor: 'red'
+
+
                 }}
                >
             <View 
             //</TouchableOpacity>
             >
-              <Parallax2/>
+              <Parallax3  /> 
             </View>
           </TouchableOpacity>
           <View style={styles.bottomContainer}>
@@ -129,9 +145,10 @@ const styles = StyleSheet.create({
 
   outerContainer: {
     flex: 1,
-    width: width,
+    width: '100%',
+  
     height: height,
-    backgroundColor: ' #FBFBF2',
+    backgroundColor: '#fbfbf2',
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
@@ -145,7 +162,7 @@ const styles = StyleSheet.create({
     //width: '70%',
     //minWidth: 300,
 
-   //backgroundColor: 'lightgrey',
+   
    
    //paddingHorizontal:  width / 16,
     alignItems: 'center',
@@ -192,7 +209,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
    
 
-   backgroundColor: '#fbfbf2',
+   //backgroundColor: '#fbfbf2',
 
     textAlign: 'center',
     //borderColor: 'black',
@@ -202,7 +219,7 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     //marginTop: height /10,
-   //backgroundColor: 'lightyellow',
+   //
     
   },
   title: {

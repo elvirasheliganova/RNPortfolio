@@ -20,8 +20,10 @@ import Project from '../screens/Project';
 
 
 const { width, height } = Dimensions.get('window');
-const ITEM_WIDTH = width * 0.39;
-const ITEM_HEIGHT = ITEM_WIDTH * 0.55;
+const ITEM_WIDTH = width * 0.5;
+//const ITEM_WIDTH = width * 0.39;
+const ITEM_HEIGHT = ITEM_WIDTH * 0.6;
+//const ITEM_HEIGHT = ITEM_WIDTH * 0.55;
 const mobileItemWidth = width * 0.7
 const mobileItemHeight = mobileItemWidth * 0.8
 
@@ -72,15 +74,15 @@ const mobile = useMediaQuery({
      // [styles.container], {}
       }>
       <View style={{ 
-        width : mobile ? ITEM_WIDTH * 2.2 : tablet ? ITEM_WIDTH * 1.5 :  ITEM_WIDTH,  
+        width : mobile ? ITEM_WIDTH * 2.2 : tablet ? ITEM_WIDTH * 1.5 :  ITEM_WIDTH , 
         height: mobile ? ITEM_HEIGHT * 2.5 : tablet ? ITEM_HEIGHT * 1.7 : ITEM_HEIGHT, 
+       //maxHeight: 450,
         justifyContent: 'center', 
         alignContent: 'center', 
         flexDirection: 'row',
        // borderWidth: 5,
         //borderColor: 'white',
-                      }}>
-       {/* <StatusBar hidden />*/}
+                  }}>
        <View style={{position: 'absolute', top: mobile ? ITEM_HEIGHT / 2 + 40  : tablet ?  ITEM_HEIGHT / 2 + 35 : ITEM_HEIGHT / 2, right: mobile ? -width / 25 : - width / 50}}>
          {images.map((_, index) => {
            return <View 
@@ -174,6 +176,7 @@ const mobile = useMediaQuery({
                    //ITEM_WIDTH * 1.7,
                      // height: mobile ? mobileItemHeight * 0.7 :  ITEM_HEIGHT   , 
                      width : mobile ? ITEM_WIDTH * 2.2 : tablet ? ITEM_WIDTH * 1.5 : ITEM_WIDTH ,  
+                     
                      height: mobile ? ITEM_HEIGHT * 2.5 : tablet ? ITEM_HEIGHT * 1.7 : ITEM_HEIGHT  ,
                      justifyContent: 'center', 
                      alignContent: 'center', 
@@ -184,29 +187,35 @@ const mobile = useMediaQuery({
                         
                         }}>
                     <ImageBackground
-                        source={require('./../../assets/data/BANNER.png')}
-                          //{
-                          //uri: item.photo
+                        source=
+                        //{require('./../../assets/data/BANNER.png')}
+                          {
+                          item.photo
                           
-                        //}
+                        }
                       
                         style={{
-                          width :  mobile ? ITEM_WIDTH * 2.2 : tablet ? ITEM_WIDTH * 1.5 : ITEM_WIDTH,  
-                          height: mobile ? ITEM_HEIGHT * 2.5 : tablet ? ITEM_HEIGHT * 1.9 : ITEM_HEIGHT * 1.4  ,
+                          //aspectRatio: 3/4,
+                          width :  mobile ? ITEM_WIDTH * 2.2 : tablet ? ITEM_WIDTH * 1.5 : ITEM_WIDTH ,  
+                          height: mobile ? ITEM_HEIGHT * 2.5 : tablet ? ITEM_HEIGHT * 1.9 : ITEM_HEIGHT   ,
                          // width: mobile ? mobileItemWidth :   ITEM_WIDTH ,
                          // height: mobile ? mobileItemHeight * 1.5 :  ITEM_HEIGHT * 1.6 ,
                           justifyContent: 'center',
                           alignContent: 'center',
                           
-                          //resizeMode: 'cover',
+                          resizeMode: 'contain',
                         
                           
                         }}
-                        imageStyle={{width :  mobile ? ITEM_WIDTH * 2.2 :tablet ? ITEM_WIDTH * 1.5 : ITEM_WIDTH,  
-                          height: mobile ? ITEM_HEIGHT * 2.5 : tablet ? ITEM_HEIGHT * 2.5 : ITEM_HEIGHT * 1.4  ,}}
+                        imageStyle={{width :  mobile ? ITEM_WIDTH * 2.2 :tablet ? ITEM_WIDTH * 1.5 : ITEM_WIDTH ,  
+                          height: mobile ? ITEM_HEIGHT * 2.5 : tablet ? ITEM_HEIGHT * 2.5 : ITEM_HEIGHT   ,
+                          
+                          
+                        }}
                       >
                           <View style={{height:  '100%', 
                           paddingTop: mobile ? ITEM_HEIGHT / 1.3 : tablet ? ITEM_HEIGHT/1.4 :  ITEM_HEIGHT/1.7 , 
+                          
                           //borderWidth: 1,
                           //borderColor: 'red'
                         }}>

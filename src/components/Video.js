@@ -7,6 +7,7 @@ import images from "../../assets/data/images";
 const  ProjectVideo = (props) => {
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
+  
   return (
     <View style={styles.container}>
       <Video
@@ -30,12 +31,16 @@ const  ProjectVideo = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: '75%',
+    width: '100%',
+   
+    
 
-backgroundColor: 'black'
+backgroundColor: '#042D47'
   },
   video: {
-    flex: 1
+    flex: 1,
+    justifyContent: 'center',
+    alignContent:'center',
     
     
   }
