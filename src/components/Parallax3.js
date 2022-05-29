@@ -76,7 +76,7 @@ const Parallax3 = () => {
       <View style={{ 
         width : mobile ? ITEM_WIDTH *1.15 : tablet ? ITEM_WIDTH  :  ITEM_WIDTH ,
         maxWidth: 760, 
-        height: mobile ? ITEM_HEIGHT * 2.5 : tablet ? ITEM_HEIGHT * 1.7 : laptop ? ITEM_HEIGHT: ITEM_HEIGHT,
+        height: mobile ? ITEM_HEIGHT * 2.5 : tablet ? ITEM_HEIGHT * 1.7 : laptop ? ITEM_HEIGHT : ITEM_HEIGHT,
         maxHeight:  450, 
         justifyContent: 'center', 
         alignContent: 'center', 
@@ -105,7 +105,7 @@ const Parallax3 = () => {
          </Animated.View>
        </View>   
        
-         <Animated.FlatList
+         <FlatList
            data={data}
            keyExtractor={item => item.key}
            pagingEnabled
@@ -165,7 +165,7 @@ const Parallax3 = () => {
               <View style={{
                     width: mobile ? ITEM_WIDTH *1.15 : ITEM_WIDTH  , 
                     maxWidth: 760,
-                    height: mobile ? ITEM_HEIGHT * 2.5 : tablet ? ITEM_HEIGHT * 1.7 : laptop ? ITEM_HEIGHT/ 2.2 : ITEM_HEIGHT, 
+                    height: mobile ? ITEM_HEIGHT * 2.5 : tablet ? ITEM_HEIGHT * 1.7 : laptop ? ITEM_HEIGHT : ITEM_HEIGHT, 
         maxHeight: 450,
                     justifyContent: 'center',
               alignContent: 'center',
@@ -174,20 +174,20 @@ const Parallax3 = () => {
               overflow: 'hidden'
                     
                   }} >
-                <Animated.Image 
+                <Image 
                   source={item.photo}
                   style={{
                     //borderColor: 'black',
                     //borderWidth: 2,
                     width:  mobile ? ITEM_WIDTH *1.15 : ITEM_WIDTH  , 
                     maxWidth: 760,
-                    height: mobile ? ITEM_HEIGHT * 1.7 :laptop ? ITEM_HEIGHT : ITEM_HEIGHT , 
+                    height: mobile ? ITEM_HEIGHT * 1.7 : ITEM_HEIGHT , 
                     maxHeight: 450,
                     resizeMode: 'cover',
                     
-                    transform: [{
-                      translateY
-                    }]
+                    //transform: [{
+                      //translateY
+                   // }]
                   }}
                   />
               </View>

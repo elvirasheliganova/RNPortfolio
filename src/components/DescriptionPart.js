@@ -38,20 +38,20 @@ const DescriptionPart = ({item}) => {
   })
 
   return (
-    <View style={{}} >
+    <View style={{flexDirection: mobile ? 'row' : 'column'}} >
       <View>
-        <Text style={{fontSize: mobile ? width / 32 : tablet ?  width / 50 :  16, fontWeight: 'bold', color: '#645355', paddingBottom: tablet ? 5 : 15}}>
+        <Text style={{fontSize: mobile ? width / 25 : tablet ?  width / 50 :  16, fontWeight: 'bold', color: '#645355', paddingBottom: tablet ? 5 : 15}}>
           {item.desc2}
         </Text>
-      </View>
+      
 
-      <View>
+      <View style={{}}>
         <View style={{marginBottom:  mobile? 5 :tablet ? 15 : 40}}>
           <View style={{flexDirection: 'row' }}>
             <View style={{justifyContent: 'center', marginHorizontal: 5}}>
               <FontAwesome name='circle' size={6} color= '#645355'  />
             </View>  
-            <Text style={{fontFamily: 'OpenSans_400Regular,',  fontSize: mobile ? width / 32 : tablet ?  width / 50 :  14,  color: '#645355', textAlign: 'justify'}}>
+            <Text style={{fontFamily: 'OpenSans_400Regular,',  fontSize: mobile ? width / 25 : tablet ?  width / 50 :  14,  color: '#645355', textAlign: 'justify'}}>
             {item.desc31}
             </Text>
           </View>
@@ -59,25 +59,25 @@ const DescriptionPart = ({item}) => {
             <View style={{justifyContent: 'center', marginHorizontal: 5}}>
               <FontAwesome name='circle' size={6} color= '#645355'  />
             </View>  
-            <Text style={{fontFamily: 'OpenSans_400Regular,',  fontSize: mobile ? width / 32 : tablet ?  width / 50 :  14,  color: '#645355', textAlign: 'justify'}}>
+            <Text style={{fontFamily: 'OpenSans_400Regular,',  fontSize: mobile ? width / 25 : tablet ?  width / 50 :  14,  color: '#645355', textAlign: 'justify'}}>
             {item.desc32}
             </Text>
           </View>
         </View>
       
       </View>
-      
+      </View>
       <View>
-        <Text style={{fontSize: mobile ? width / 32 : tablet ?  width / 50 :  16, fontWeight: 'bold', color: '#645355', paddingBottom: tablet ? 5 : 15}}>
+        <Text style={{fontSize: mobile ? width / 25 : tablet ?  width / 50 :  16, fontWeight: 'bold', color: '#645355', paddingBottom: tablet ? 5 : 15}}>
           {item.desc4}
         </Text>
-      </View>
+      
       <View style={{marginBottom: mobile? 5 : tablet ? 15 : 40}}>
         <View style={{flexDirection: 'row' }}>
           <View style={{justifyContent: 'center', marginHorizontal: 5}}>
             <FontAwesome name='circle' size={!item.desc4 ? 0 : 6} color= '#645355'  />
           </View>  
-          <Text style={{fontFamily: 'OpenSans_400Regular,',  fontSize: mobile ? width / 32 : tablet ?  width / 50 :  14,  color: '#645355', textAlign: 'justify'}}>
+          <Text style={{fontFamily: 'OpenSans_400Regular,',  fontSize: mobile ? width / 25 : tablet ?  width / 50 :  14,  color: '#645355', textAlign: 'justify'}}>
             {item.desc51}
           </Text>
         </View>
@@ -85,7 +85,7 @@ const DescriptionPart = ({item}) => {
           <View style={{justifyContent: 'center', marginHorizontal: 5}}>
             <FontAwesome name='circle' size={!item.desc4 ? 0 : 6} color= '#645355'  />
           </View>  
-          <Text style={{fontFamily: 'OpenSans_400Regular,',  fontSize: mobile ? width / 32 : tablet ?  width / 50 :  14,  color: '#645355', textAlign: 'justify'}}>
+          <Text style={{fontFamily: 'OpenSans_400Regular,',  fontSize: mobile ? width / 25 : tablet ?  width / 50 :  14,  color: '#645355', textAlign: 'justify'}}>
             {item.desc52}
           </Text>
         </View>
@@ -93,7 +93,7 @@ const DescriptionPart = ({item}) => {
       </View>
       
       
-      
+      </View> 
     </View>
     
   )

@@ -32,37 +32,36 @@ const ProjectDescription = ({item}) => {
   
   return (
     <View style={{flex:1, justifyContent: 'flex-start', 
-    //backgroundColor: 'lightgreen' 
+    //backgroundColor: 'lightgreen' ,
+    
   }}>
      
-      <View style={{width: '100%', height:  tablet ? '15%' : '10%', marginBottom:  mobile? 5 : tablet ? 15 :40, alignItems: 'flex-start', 
-      //backgroundColor: 'pink' , alignItems: 'flex-start'
-      }}>
-        <Image 
-          source={item.frame}
-          style={{width:  tablet ? '50%' : '100%', height: '100%', resizeMode: 'contain', }}
-    />
-    
-      </View>
-        <View style={{marginBottom: mobile? 5 : tablet ? 10 : 30}}>
-          <Text style={{fontFamily: 'OpenSans_400Regular,', fontSize: mobile ? width / 32 : tablet ?  width / 50 :  14, color: '#645355', textAlign: 'justify'}}>
+      
+      
+      <View style={{marginBottom: mobile || tablet ? 10 : 30}}>
+        <View style={{marginBottom: 40}}>
+          <Text style={{fontSize: 26, fontWeight: 'bold', color: '#645355',}}>{item.title}</Text>
+        </View>
+        
+        <Text style={{fontFamily: 'OpenSans_400Regular,', fontSize: mobile ? width / 25 : tablet ?  width / 50 :  14, color: '#645355', textAlign: 'justify'}}>
             {item.desc1}
-          </Text>
-        </View>
-        <View style={{}}>
-          <DescriptionPart item = {item}/>
-        </View>
-        <TouchableOpacity  
+        </Text>
+      </View>
+
+      <View style={{}}>
+        <DescriptionPart item = {item}/>
+      </View>
+      <TouchableOpacity  
         onPress={() => Linking.openURL( `${item.link}`)}
 //?subject=SendMail&body=Description') 
       
         //title="support@example.com"
-        style={{marginBottom: 20}} >
-           <Text style={{color: '#4285F4', fontSize:  mobile? 12 : 14, fontWeight: 'bold'}}
+        style={{marginBottom: 20,  marginTop: mobile? 20 : 0} }>
+        <Text style={{color: '#FD4E02', fontSize:  mobile? 12 : 14, fontWeight: 'bold'}}
           //numberOfLines={2}
           //adjustsFontSizeToFit
             >Link to Page </Text>
-        </TouchableOpacity>
+      </TouchableOpacity>
       
       
 

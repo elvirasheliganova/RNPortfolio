@@ -5,7 +5,19 @@ import '@expo/match-media';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useMediaQuery } from "react-responsive";
 import { StyleSheet, Text, View, FlatList, Image, Animated,  ImageBackground,  Dimensions } from 'react-native';
-
+import {
+  
+  OpenSans_300Light,
+  OpenSans_300Light_Italic,
+  OpenSans_400Regular,
+  OpenSans_400Regular_Italic,
+  OpenSans_600SemiBold,
+  OpenSans_600SemiBold_Italic,
+  OpenSans_700Bold,
+  OpenSans_700Bold_Italic,
+  OpenSans_800ExtraBold,
+  OpenSans_800ExtraBold_Italic,
+} from '@expo-google-fonts/open-sans';
 import {Linking} from 'react-native'
 import AppLoading from 'expo-app-loading';
 import { useFonts,  AbrilFatface_400Regular  } from '@expo-google-fonts/abril-fatface';
@@ -54,6 +66,8 @@ const HomeScreen2 = ({navigation}) => {
 
   let [fontsLoaded] = useFonts({
     AbrilFatface_400Regular,
+    OpenSans_400Regular
+    
   });
 
   if (!fontsLoaded) {
@@ -94,7 +108,7 @@ const HomeScreen2 = ({navigation}) => {
           <TouchableOpacity 
                 style={{
                   marginBottom: mobile ? 20 : tablet ? height / 20 : height/ 15,  
-                 //backgroundColor: 'yellow',
+                 backgroundColor: 'yellow',
                  
                   width : mobile ? ITEM_WIDTH * 1.5 : tablet ? ITEM_WIDTH * 1.5 :  ITEM_WIDTH ,  
         maxWidth: 760,
@@ -111,17 +125,20 @@ const HomeScreen2 = ({navigation}) => {
                 }}
                >
             <View 
-            //</TouchableOpacity>
+            
             >
               <Parallax3  /> 
             </View>
           </TouchableOpacity>
-          <View style={styles.bottomContainer}>
+          <View 
+          style={styles.bottomContainer}
+          >
             <Text 
             //numberOfLines={2}
             //adjustsFontSizeToFit
             style={[styles.question, { fontSize: mobile ? 16 : tablet ? 22 : 22 }]}>Want to work together?</Text>
-            <TouchableOpacity  onPress={() => Linking.openURL('mailto:elvirashelyganov.a@gmail.com')
+            <TouchableOpacity 
+             onPress={() => Linking.openURL('mailto:elvirashelyganov.a@gmail.com')
             //?subject=SendMail&body=Description') 
             }
             title="support@example.com" >
@@ -196,6 +213,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     bottom: - height / 16,
     fontFamily: 'AbrilFatface_400Regular',
+    
 
     //backgroundColor: 'lightgreen'
     
@@ -226,7 +244,8 @@ const styles = StyleSheet.create({
     color:  '#857676',
     paddingBottom: 20,
     //fontSize: width / 72,
-    fontFamily: 'AbrilFatface_400Regular',
+    fontFamily: ' OpenSans_400Regular',
+    fontWeight: '600'
   },
 //don't need it at all
   imageContainer:
@@ -252,21 +271,23 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     //paddingTop: windowWidth / 30,
     //marginBottom: height / 60,
-    //backgroundColor: 'lightpink',
+   // backgroundColor: 'lightpink',
   },
   
   question: {
     color:  '#857676',
     
-    fontFamily: 'AbrilFatface_400Regular',
+    fontFamily: ' OpenSans_400Regular',
     marginBottom: height / 100,
+    fontWeight: '600'
     //marginTop: windowWidth / 40
   }, 
 
   getInTouch: {
     color: '#FD4E02',
     fontSize: width / 60,
-    fontFamily: 'AbrilFatface_400Regular',
+    fontFamily: ' OpenSans_400Regular',
+    fontWeight: '900'
   }
 
 });

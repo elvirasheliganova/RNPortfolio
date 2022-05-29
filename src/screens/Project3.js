@@ -76,18 +76,19 @@ const Project3 = () => {
     
   return (
     <SafeAreaView style={{flex: 1 , width: '100%', justifyContent: 'center', alignItems: 'center', paddingVertical: 30, backgroundColor: '#fbfbf2',  }}>
-      <View style={{  width: mobile ? width  * 0.85 : tablet ? width * 0.85 :  width * 0.6 ,   justifyContent: 'space-between',  
+      <View style={{  width: mobile ? width   : tablet ? width * 0.85 :  width * 0.6 ,   justifyContent: 'space-between',  
       //backgroundColor: 'pink'  
       }}>
         <View>
           <View style={{ flexDirection: mobile || tablet ? 'column' : 'row',  
           //backgroundColor: 'lightblue', 
-          alignItems:  'center' ,
-          justifyContent: 'space-between',
+          alignItems: mobile ? 'center' : 'flex-start' ,
+          justifyContent: mobile? 'space-around' : 'space-between',
+          //width: mobile ? '75%' : '100%',
           height: tablet ? height * 0.8 : height * 0.6,   
         }}>
             <View style={{
-              width: mobile ? '80%' : tablet ? '80%' : '45%' , 
+              width: mobile ? '90%' : tablet ? '80%' : '45%' , 
               //height: '100%',
               //backgroundColor: 'lightyellow', 
               justifyContent:'start', alignItems: 'center',
@@ -99,8 +100,8 @@ const Project3 = () => {
             </View>
             { videoPressed ?
               <>
-                <View style={{  width: mobile ? '80%' : tablet ? '60%' : '45%', 
-                height: tablet ? height * 0.5 : height* 0.65,  justifyContent: 'center', alignItems: 'center',   }}>
+                <View style={{  width: mobile ? '70%' : tablet ? '60%' : '45%', 
+                height: tablet ? height * 0.5 : height* 0.6,  justifyContent: 'center', alignItems: 'center',   }}>
                   <ProjectVideo video={item.video}/>
                   </View>
                 
@@ -110,9 +111,9 @@ const Project3 = () => {
           
           
           <View style={{
-            width: mobile ? '80%' : tablet ? '60%' : '45%', 
+            width: mobile ? '70%' : tablet ? '60%' : '45%', 
             height: tablet ? height * 0.5 : height* 0.6, 
-           // backgroundColor: 'blue', 
+           //backgroundColor: 'blue', 
             justifyContent:'center', alignSelf: tablet ? 'center' : 'start',  }}>
             <ImageBackground 
             source= {item.banner}
@@ -124,7 +125,7 @@ const Project3 = () => {
             //paddingBottom: height / 8, alignSelf:'flex-end',  
             justifyContent: 'center'   
           }}
-            imageStyle={{opacity: 1 , resizeMode: 'cover' }}
+            imageStyle={{opacity: 1 , resizeMode: 'cover', borderRadius: 5 }}
             >
               {/*<TouchableOpacity
               onPress={() => {
@@ -242,12 +243,9 @@ const Project3 = () => {
       
       
       <View style={{
-          width:   mobile ? '100%' : tablet ? '87%' :'100%',  
-          
-         // backgroundColor: 'lightgrey', 
-          margingTop: height/30,
-          alignSelf:  mobile  || tablet? 'center' :'flex-end', justifyContent:'center', alignItems: 'center', 
-          height: tablet ? height * 0.1 : height * 0.15,}}>
+        textAlign: 'center',
+       
+        }}>
            
 
            
@@ -255,11 +253,17 @@ const Project3 = () => {
             
             style={[ { 
               fontSize: mobile ? width / 25 : tablet ?  width / 35 :  22,
-              fontFamily: 'AbrilFatface_400Regular', 
+              fontFamily:' OpenSans_400Regular,',
+              fontWeight: '600',
+              marginBottom: height / 100,
               textAlign: 'center', color: '#847577',
               paddingTop: mobile ? width / 20 : tablet ?  width / 45 :  width / 90 }]}>Want to work together?</Text>
        
-            <TouchableOpacity  onPress={() => Linking.openURL('mailto:elvirashelyganov.a@gmail.com')
+            <TouchableOpacity  style={{ 
+            //backgroundColor: '#FD4E02', borderRadius: 3
+          }}
+            
+            onPress={() => Linking.openURL('mailto:elvirashelyganov.a@gmail.com')
           
             }
             title="support@example.com" >
@@ -268,8 +272,11 @@ const Project3 = () => {
               style={ { 
                 
                 color: '#FD4E02',
-                fontSize: mobile  ? width / 23 : tablet ? width / 33 : 26,
-                fontFamily: 'AbrilFatface_400Regular',
+                //'#FD4E02',
+                //fontSize: mobile  ? width / 23 : tablet ? width / 33 : 28,
+                fontSize: width / 60,
+                fontFamily: 'OpenSans_400Regular,',
+                fontWeight: '600',
                 textAlign: 'center'}}>Get in touch </Text>
             </TouchableOpacity>
     

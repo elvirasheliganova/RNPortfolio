@@ -16,7 +16,7 @@ const  ProjectVideo = (props) => {
         source={props.video}
         shouldPlay
         useNativeControls
-        resizeMode="cover"
+        resizeMode="contain"
         
         isLooping
         onPlaybackStatusUpdate={status => setStatus(() => status)}
@@ -32,15 +32,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
-   
+    borderRadius: 5,
     
-
-backgroundColor: '#042D47'
+    backgroundColor: '#fbfbf2',
+   // backgroundColor: '#042D47'
   },
   video: {
     flex: 1,
     justifyContent: 'center',
     alignContent:'center',
+    
     
     
   }
