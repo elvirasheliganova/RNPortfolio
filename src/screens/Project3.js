@@ -82,8 +82,8 @@ const Project3 = () => {
         <View>
           <View style={{ flexDirection: mobile || tablet ? 'column' : 'row',  
           //backgroundColor: 'lightblue', 
-          alignItems: mobile ? 'center' : 'flex-start' ,
-          justifyContent: mobile? 'space-around' : 'space-between',
+          alignItems: mobile || tablet ? 'center' : 'flex-start' ,
+          justifyContent: mobile  ? 'space-around' : 'space-between',
           //width: mobile ? '75%' : '100%',
           height: tablet ? height * 0.8 : height * 0.6,   
         }}>
@@ -101,7 +101,8 @@ const Project3 = () => {
             { videoPressed ?
               <>
                 <View style={{  width: mobile ? '70%' : tablet ? '60%' : '45%', 
-                height: tablet ? height * 0.5 : height* 0.6,  justifyContent: 'center', alignItems: 'center',   }}>
+                height: tablet ? height * 0.5 : height* 0.6,  
+                justifyContent: 'center', alignItems: 'center',   }}>
                   <ProjectVideo video={item.video}/>
                   </View>
                 
@@ -112,7 +113,7 @@ const Project3 = () => {
           
           <View style={{
             width: mobile ? '70%' : tablet ? '60%' : '45%', 
-            height: tablet ? height * 0.5 : height* 0.6, 
+           height: tablet ? height * 0.5 : height* 0.6, 
            //backgroundColor: 'blue', 
             justifyContent:'center', alignSelf: tablet ? 'center' : 'start',  }}>
             <ImageBackground 
@@ -125,7 +126,7 @@ const Project3 = () => {
             //paddingBottom: height / 8, alignSelf:'flex-end',  
             justifyContent: 'center'   
           }}
-            imageStyle={{opacity: 1 , resizeMode: 'cover', borderRadius: 5 }}
+            imageStyle={{opacity: 1 , resizeMode: 'contain', borderRadius: 5 }}
             >
               {/*<TouchableOpacity
               onPress={() => {
@@ -274,7 +275,7 @@ const Project3 = () => {
                 color: '#FD4E02',
                 //'#FD4E02',
                 //fontSize: mobile  ? width / 23 : tablet ? width / 33 : 28,
-                fontSize: width / 60,
+                fontSize: mobile  ? width / 23 : tablet ? width / 33 : width / 60,
                 fontFamily: 'OpenSans_400Regular,',
                 fontWeight: '600',
                 textAlign: 'center'}}>Get in touch </Text>

@@ -31,7 +31,7 @@ const ProjectDescription = ({item}) => {
   })
   
   return (
-    <View style={{flex:1, justifyContent: 'flex-start', 
+    <View style={{flex:1, justifyContent:   'flex-start', alignItems: mobile || tablet ? 'center' : 'flex-start' ,
     //backgroundColor: 'lightgreen' ,
     
   }}>
@@ -39,16 +39,16 @@ const ProjectDescription = ({item}) => {
       
       
       <View style={{marginBottom: mobile || tablet ? 10 : 30}}>
-        <View style={{marginBottom: 40}}>
-          <Text style={{fontSize: 26, fontWeight: 'bold', color: '#645355',}}>{item.title}</Text>
+        <View style={{marginBottom: 40, }}>
+          <Text style={{fontSize: 26, fontWeight: 'bold', color: '#645355', textAlign: mobile || tablet ? 'center' : 'left'}}>{item.title}</Text>
         </View>
         
-        <Text style={{fontFamily: 'OpenSans_400Regular,', fontSize: mobile ? width / 25 : tablet ?  width / 50 :  14, color: '#645355', textAlign: 'justify'}}>
+        <Text style={{fontFamily: 'OpenSans_400Regular,', fontSize: mobile ? width / 30 : tablet ?  width / 50 :  14, color: '#645355', textAlign: 'justify', marginBottom: tablet ? 10 : 0 }}>
             {item.desc1}
         </Text>
       </View>
 
-      <View style={{}}>
+      <View style={{width: '100%'}}>
         <DescriptionPart item = {item}/>
       </View>
       <TouchableOpacity  
@@ -56,7 +56,7 @@ const ProjectDescription = ({item}) => {
 //?subject=SendMail&body=Description') 
       
         //title="support@example.com"
-        style={{marginBottom: 20,  marginTop: mobile? 20 : 0} }>
+        style={{marginBottom: tablet ? 10 : 20,  marginTop: mobile? 20 : 0} }>
         <Text style={{color: '#FD4E02', fontSize:  mobile? 12 : 14, fontWeight: 'bold'}}
           //numberOfLines={2}
           //adjustsFontSizeToFit

@@ -5,7 +5,7 @@
     id: 'image1',
     photo: require('./BANNER.png') ,
     //'https://images.unsplash.com/photo-1639413665566-2f75adf7b7ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDg4fGFldTZyTC1qNmV3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-    banner: require('./visitOpatijaWelcome.png'),
+    banner: require('./visitOpatijaBanner.png'),
     title: 'Visit Opatija Riviera',
     text: 'Travel app build as a bare react native project ',
     desc1: 'An airbnb-style accomodation booking application for the croatian market. Based on the google maps API, the dataset is visalused as a location-based overlay, enabling user selection',

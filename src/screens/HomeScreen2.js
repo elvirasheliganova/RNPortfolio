@@ -108,7 +108,7 @@ const HomeScreen2 = ({navigation}) => {
           <TouchableOpacity 
                 style={{
                   marginBottom: mobile ? 20 : tablet ? height / 20 : height/ 15,  
-                 backgroundColor: 'yellow',
+                 //backgroundColor: 'yellow',
                  
                   width : mobile ? ITEM_WIDTH * 1.5 : tablet ? ITEM_WIDTH * 1.5 :  ITEM_WIDTH ,  
         maxWidth: 760,
