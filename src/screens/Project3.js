@@ -51,6 +51,10 @@ const Project3 = () => {
     maxDeviceWidth: 600,
     query: "(max-device-width: 600px)"
   })
+  const smallMobile = useMediaQuery({
+    maxDeviceWidth: 666,
+    query: "(max-device-width: 666px)"
+  })
 
   const route = useRoute()
   const navigation  = useNavigation()
@@ -192,7 +196,7 @@ const Project3 = () => {
                   alignSelf: 'flex-start',
                   //backgroundColor: 'lightgreen'
                   }}
-                onPress={() => {navigation.navigate ('HomeScreen'),
+                onPress={() => {navigation.navigate ('TheElza'),
                 setVideoPressed(false),
                 console.log(videoPressed)}}>
                   <Text  style={ { 

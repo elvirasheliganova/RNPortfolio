@@ -36,9 +36,13 @@ const DescriptionPart = ({item}) => {
     maxDeviceWidth: 600,
     query: "(max-device-width: 600px)"
   })
+  const smallMobile = useMediaQuery({
+    maxDeviceWidth: 666,
+    query: "(max-device-width: 666px)"
+  })
 
   return (
-    <View style={{flexDirection: mobile || tablet ? 'row' : 'column', justifyContent: 'space-between', }} >
+    <View style={{flexDirection: mobile || tablet ? 'row' : 'column', justifyContent: 'space-between', marginHorizontal:smallMobile ? 20 : 0  }} >
       <View style={{}}>
         <Text style={{fontSize: mobile ? width / 30 : tablet ?  width / 50 :  16, fontWeight: 'bold', color: '#645355', paddingBottom: tablet ? 5 : 15}}>
           {item.desc2}
@@ -51,7 +55,7 @@ const DescriptionPart = ({item}) => {
             <View style={{justifyContent: 'center', marginHorizontal: 5}}>
               <FontAwesome name='circle' size={6} color= '#645355'  />
             </View>  
-            <Text style={{fontFamily: 'OpenSans_400Regular,',  fontSize: mobile ? width / 30 : tablet ?  width / 50 :  14,  color: '#645355', textAlign: 'justify'}}>
+            <Text style={{fontFamily: 'OpenSans_400Regular,',  fontSize: smallMobile ? width/30 : mobile ? width / 30 : tablet ?  width / 50 :  14,  color: '#645355', textAlign: 'justify'}}>
             {item.desc31}
             </Text>
           </View>

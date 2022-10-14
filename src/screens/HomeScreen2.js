@@ -50,9 +50,9 @@ const HomeScreen2 = ({navigation}) => {
     maxDeviceWidth: 992,
     query: "(max-device-width: 992px)"
   })
-  const bigMobile = useMediaQuery({
-    maxDeviceWidth: 768,
-    query: "(max-device-width: 768px)"
+  const smallMobile = useMediaQuery({
+    maxDeviceWidth: 375,
+    query: "(max-device-width: 375px)"
   })
   const mobile = useMediaQuery({
     maxDeviceWidth: 600,
@@ -110,9 +110,9 @@ const HomeScreen2 = ({navigation}) => {
                   marginBottom: mobile ? 20 : tablet ? height / 20 : height/ 15,  
                  //backgroundColor: 'yellow',
                  
-                  width : mobile ? ITEM_WIDTH * 1.5 : tablet ? ITEM_WIDTH * 1.5 :  ITEM_WIDTH ,  
+                  width :  mobile ? ITEM_WIDTH * 1.5 : tablet ? ITEM_WIDTH * 1.5 :  ITEM_WIDTH ,  
         maxWidth: 760,
-       height: mobile ? ITEM_HEIGHT * 2.5 : tablet ? ITEM_HEIGHT  : laptop ? ITEM_HEIGHT/ 2.2 : ITEM_HEIGHT, 
+       height: smallMobile ? ITEM_HEIGHT/2.5 : mobile ? ITEM_HEIGHT * 2.5 : tablet ? ITEM_HEIGHT  : laptop ? ITEM_HEIGHT/ 2.2 : ITEM_HEIGHT, 
         maxHeight: 450,
                   //height:  mobile ? height / 4 : tablet ? height / 3.5 : height/ 2.5,
                   //width: mobile ? width / 1.2 : tablet ?  width / 1.75 : width/ 2.6,

@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     borderRadius: 5,
-    
+    //alignContent: 'center',
     backgroundColor: '#fbfbf2',
    // backgroundColor: '#042D47'
   },

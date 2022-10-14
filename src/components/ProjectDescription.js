@@ -29,7 +29,10 @@ const ProjectDescription = ({item}) => {
     maxDeviceWidth: 600,
     query: "(max-device-width: 600px)"
   })
-  
+  const smallMobile = useMediaQuery({
+    maxDeviceWidth: 666,
+    query: "(max-device-width: 666px)"
+  })
   return (
     <View style={{flex:1, justifyContent:   'flex-start', alignItems: mobile || tablet ? 'center' : 'flex-start' ,
     //backgroundColor: 'lightgreen' ,
@@ -39,11 +42,11 @@ const ProjectDescription = ({item}) => {
       
       
       <View style={{marginBottom: mobile || tablet ? 10 : 30}}>
-        <View style={{marginBottom: 40, }}>
-          <Text style={{fontSize: 26, fontWeight: 'bold', color: '#645355', textAlign: mobile || tablet ? 'center' : 'left'}}>{item.title}</Text>
+        <View style={{marginBottom: smallMobile ? 20 : 40, }}>
+          <Text style={{fontSize: smallMobile ? width/20 : 26, fontWeight: 'bold', color: '#645355', textAlign: mobile || tablet ? 'center' : 'left'}}>{item.title}</Text>
         </View>
         
-        <Text style={{fontFamily: 'OpenSans_400Regular,', fontSize: mobile ? width / 30 : tablet ?  width / 50 :  14, color: '#645355', textAlign: 'justify', marginBottom: tablet ? 10 : 0 }}>
+        <Text style={{fontFamily: 'OpenSans_400Regular,', fontSize:  mobile ? width / 30 : tablet ?  width / 50 :  14, color: '#645355', textAlign: 'justify', marginBottom: smallMobile ? 5 : tablet ? 10 : 0 }}>
             {item.desc1}
         </Text>
       </View>
@@ -56,7 +59,7 @@ const ProjectDescription = ({item}) => {
 //?subject=SendMail&body=Description') 
       
         //title="support@example.com"
-        style={{marginBottom: tablet ? 10 : 20,  marginTop: mobile? 20 : 0} }>
+        style={{marginBottom: tablet ? 10 : 20,  marginTop: smallMobile ? 5 : mobile? 20 : 0} }>
         <Text style={{color: '#FD4E02', fontSize:  mobile? 12 : 14, fontWeight: 'bold'}}
           //numberOfLines={2}
           //adjustsFontSizeToFit

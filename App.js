@@ -19,7 +19,7 @@ export default function App() {
       <ProjectProvider>
         <NavigationContainer>
           <Stack.Navigator>
-            <Stack.Screen name='HomeScreen' component={HomeScreen2} options={{
+            <Stack.Screen name='TheElza' component={HomeScreen2} options={{
               headerShown: false
             }}/>
             <Stack.Screen name='Project' component={Project3} options={{

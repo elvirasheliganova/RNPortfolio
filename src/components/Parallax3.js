@@ -52,6 +52,10 @@ const Parallax3 = () => {
     maxDeviceWidth: 600,
     query: "(max-device-width: 600px)"
   })
+  const smallMobile = useMediaQuery({
+    maxDeviceWidth: 375,
+    query: "(max-device-width: 375px)"
+  })
   
   const navigation  = useNavigation()
 
@@ -84,7 +88,7 @@ const Parallax3 = () => {
         
       }}>   
 
-        <View style={{position: 'absolute', top: mobile ? ITEM_HEIGHT / 2 + 40  : tablet ?  ITEM_HEIGHT / 2 - 40 : ITEM_HEIGHT / 2, right: mobile ? -width / 25 : - width / 50}}>
+        <View style={{position: 'absolute', top: smallMobile ? ITEM_HEIGHT / 2 + 40  : mobile ? ITEM_HEIGHT / 2   : tablet ?  ITEM_HEIGHT / 2 - 40 : ITEM_HEIGHT / 2, right: mobile ? -width / 25 : - width / 50}}>
          {images.map((_, index) => {
            return <View 
              key={index}
@@ -98,7 +102,7 @@ const Parallax3 = () => {
            style={{ width: 12, height: 12, borderRadius: 12, borderWidth: 1, borderColor: 'lightgrey', position: 'absolute', top: -3, right: -3, 
              transform: [{translateY: Animated.divide(scrollY, ITEM_HEIGHT).interpolate({
                inputRange: [0, 1],
-               outputRange: mobile ? [0, 11] : tablet ? [0, 14] : [0, 13]
+               outputRange: smallMobile ? [0, 9] : mobile ? [0, 11] : tablet ? [0, 14] : [0, 13]
              })}]
         }}>
 
@@ -181,9 +185,10 @@ const Parallax3 = () => {
                     //borderWidth: 2,
                     width:  mobile ? ITEM_WIDTH *1.15 : ITEM_WIDTH  , 
                     maxWidth: 760,
+                    //aspectRatio: mobile ? 1/1 : 1/2,
                     height: mobile ? ITEM_HEIGHT * 1.7 : ITEM_HEIGHT , 
                     maxHeight: 450,
-                    resizeMode: 'cover',
+                    resizeMode: 'contain',
                     
                     //transform: [{
                       //translateY
